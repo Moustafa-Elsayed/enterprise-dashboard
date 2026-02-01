@@ -1,0 +1,278 @@
+{
+  "metrics": {
+    "cpu": {
+      "name": "CPU Usage",
+      "value": 67,
+      "unit": "%",
+      "status": "warning",
+      "trend": "up",
+      "change": 12
+    },
+    "memory": {
+      "name": "Memory",
+      "value": 82,
+      "unit": "%",
+      "status": "critical",
+      "trend": "up",
+      "change": 8
+    },
+    "disk": {
+      "name": "Disk Space",
+      "value": 45,
+      "unit": "%",
+      "status": "healthy",
+      "trend": "stable",
+      "change": 0
+    },
+    "network": {
+      "name": "Network",
+      "value": 234,
+      "unit": "Mbps",
+      "status": "healthy",
+      "trend": "down",
+      "change": -15
+    }
+  },
+  "activities": [
+    {
+      "id": "1",
+      "title": "Security patch deployed",
+      "description": "Critical security update applied to production servers",
+      "status": "completed",
+      "category": "security",
+      "timestamp": "2026-01-28T20:30:00Z",
+      "user": {
+        "name": "Sarah Chen",
+        "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah-Chen"
+      }
+    },
+    {
+      "id": "2",
+      "title": "Database performance degradation",
+      "description": "Query response time increased by 45% in the last hour",
+      "status": "warning",
+      "category": "performance",
+      "timestamp": "2026-01-28T21:15:00Z",
+      "user": {
+        "name": "Mike Johnson",
+        "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Mike-Johnson"
+      }
+    },
+    {
+      "id": "3",
+      "title": "API deployment in progress",
+      "description": "Rolling out v2.4.0 to production environment",
+      "status": "active",
+      "category": "deployment",
+      "timestamp": "2026-01-28T21:45:00Z",
+      "user": {
+        "name": "Alex Rivera",
+        "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex-Rivera"
+      }
+    },
+    {
+      "id": "4",
+      "title": "Disk space threshold exceeded",
+      "description": "Server DB-03 has reached 90% disk capacity",
+      "status": "error",
+      "category": "system",
+      "timestamp": "2026-01-28T22:00:00Z",
+      "user": {
+        "name": "Emma Davis",
+        "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Emma-Davis"
+      }
+    },
+    {
+      "id": "5",
+      "title": "Load balancer configuration updated",
+      "description": "Added new routing rules for microservices",
+      "status": "completed",
+      "category": "system",
+      "timestamp": "2026-01-28T19:20:00Z",
+      "user": {
+        "name": "James Wilson",
+        "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=James-Wilson"
+      }
+    },
+    {
+      "id": "6",
+      "title": "SSL certificate renewal",
+      "description": "Renewed certificates for *.example.com domains",
+      "status": "completed",
+      "category": "security",
+      "timestamp": "2026-01-28T18:45:00Z",
+      "user": {
+        "name": "Lisa Anderson",
+        "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Lisa-Anderson"
+      }
+    },
+    {
+      "id": "7",
+      "title": "Cache hit rate declining",
+      "description": "Redis cache efficiency dropped from 95% to 78%",
+      "status": "warning",
+      "category": "performance",
+      "timestamp": "2026-01-28T22:10:00Z",
+      "user": {
+        "name": "David Kim",
+        "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=David-Kim"
+      }
+    },
+    {
+      "id": "8",
+      "title": "Backup completed successfully",
+      "description": "Daily database backup finished in 23 minutes",
+      "status": "completed",
+      "category": "system",
+      "timestamp": "2026-01-28T17:30:00Z",
+      "user": {
+        "name": "Rachel Green",
+        "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Rachel-Green"
+      }
+    },
+    {
+      "id": "9",
+      "title": "Firewall rules updated",
+      "description": "Blocked suspicious IP ranges from Eastern Europe",
+      "status": "completed",
+      "category": "security",
+      "timestamp": "2026-01-28T20:00:00Z",
+      "user": {
+        "name": "Tom Martinez",
+        "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Tom-Martinez"
+      }
+    },
+    {
+      "id": "10",
+      "title": "Container orchestration scaling",
+      "description": "Auto-scaled pods from 12 to 18 due to traffic spike",
+      "status": "active",
+      "category": "deployment",
+      "timestamp": "2026-01-28T22:20:00Z",
+      "user": {
+        "name": "Nina Patel",
+        "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Nina-Patel"
+      }
+    },
+    {
+      "id": "11",
+      "title": "API rate limit exceeded",
+      "description": "Client app-mobile-v3 exceeded 10000 requests/hour limit",
+      "status": "error",
+      "category": "performance",
+      "timestamp": "2026-01-28T21:50:00Z",
+      "user": {
+        "name": "Chris Taylor",
+        "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Chris-Taylor"
+      }
+    },
+    {
+      "id": "12",
+      "title": "Monitoring agent deployed",
+      "description": "Installed DataDog agent on 15 new instances",
+      "status": "completed",
+      "category": "system",
+      "timestamp": "2026-01-28T16:40:00Z",
+      "user": {
+        "name": "Sophia Lee",
+        "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Sophia-Lee"
+      }
+    },
+    {
+      "id": "13",
+      "title": "Penetration test scheduled",
+      "description": "Third-party security audit begins tomorrow at 9 AM",
+      "status": "active",
+      "category": "security",
+      "timestamp": "2026-01-28T22:30:00Z",
+      "user": {
+        "name": "Marcus Brown",
+        "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus-Brown"
+      }
+    },
+    {
+      "id": "14",
+      "title": "CDN cache purged",
+      "description": "Cleared Cloudflare cache for static assets update",
+      "status": "completed",
+      "category": "deployment",
+      "timestamp": "2026-01-28T19:55:00Z",
+      "user": {
+        "name": "Olivia White",
+        "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Olivia-White"
+      }
+    },
+    {
+      "id": "15",
+      "title": "Memory leak detected",
+      "description": "Node.js service showing gradual memory increase over 6 hours",
+      "status": "error",
+      "category": "performance",
+      "timestamp": "2026-01-28T22:35:00Z",
+      "user": {
+        "name": "Daniel Garcia",
+        "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Daniel-Garcia"
+      }
+    },
+    {
+      "id": "16",
+      "title": "Log rotation configured",
+      "description": "Set up automatic log archival for application servers",
+      "status": "completed",
+      "category": "system",
+      "timestamp": "2026-01-28T15:20:00Z",
+      "user": {
+        "name": "Isabella Moore",
+        "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Isabella-Moore"
+      }
+    },
+    {
+      "id": "17",
+      "title": "Two-factor authentication enforced",
+      "description": "Mandatory 2FA enabled for all admin accounts",
+      "status": "completed",
+      "category": "security",
+      "timestamp": "2026-01-28T18:10:00Z",
+      "user": {
+        "name": "Ryan Cooper",
+        "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Ryan-Cooper"
+      }
+    },
+    {
+      "id": "18",
+      "title": "Blue-green deployment initiated",
+      "description": "Switching traffic to new environment version",
+      "status": "active",
+      "category": "deployment",
+      "timestamp": "2026-01-28T22:40:00Z",
+      "user": {
+        "name": "Mia Thompson",
+        "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Mia-Thompson"
+      }
+    },
+    {
+      "id": "19",
+      "title": "Database index optimization",
+      "description": "Rebuilt indexes on user_transactions table",
+      "status": "completed",
+      "category": "performance",
+      "timestamp": "2026-01-28T17:00:00Z",
+      "user": {
+        "name": "Ethan Harris",
+        "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Ethan-Harris"
+      }
+    },
+    {
+      "id": "20",
+      "title": "Kernel security update required",
+      "description": "Critical CVE patch available for Ubuntu servers",
+      "status": "warning",
+      "category": "security",
+      "timestamp": "2026-01-28T22:45:00Z",
+      "user": {
+        "name": "Ava Martinez",
+        "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Ava-Martinez"
+      }
+    }
+  ]
+}
