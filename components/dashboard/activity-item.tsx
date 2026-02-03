@@ -94,7 +94,7 @@ export function ActivityItem({
     >
       <div className="p-6">
         <div className="flex items-start gap-4">
-          <div className="relative flex-shrink-0">
+          <div className="relative shrink-0">
             <Image
               src={activity.user.avatar}
               alt={activity.user.name}
