@@ -1,6 +1,6 @@
 "use client";
 
-import { useTransition, useState } from "react";
+import { useOptimistic, useTransition, useState } from "react";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -19,17 +19,20 @@ export function ActivityItem({
 }: ActivityItemProps) {
   const [isPending, startTransition] = useTransition();
   const [error, setError] = useState<string | null>(null);
-  const [dismissed, setDismissed] = useState(false);
+  const [optimisticActivity, setOptimisticActivity] = useOptimistic(
+    activity,
+    (state, dismissed: boolean) => ({ ...state, dismissed }),
+  );
 
   const handleDismiss = () => {
     startTransition(() => {
       setError(null);
+      setOptimisticActivity(true);
 
       dismissActivityAction(activity.id).then((result) => {
-        if (result.success) {
-          setDismissed(true);
-        } else {
+        if (!result.success) {
           setError(result.error || "Failed to dismiss activity");
+          setOptimisticActivity(false);
         }
       });
     });
@@ -80,7 +83,7 @@ export function ActivityItem({
     }
   };
 
-  if (dismissed) {
+  if (optimisticActivity.dismissed) {
     return null;
   }
 
@@ -104,7 +107,6 @@ export function ActivityItem({
               sizes="48px"
             />
           </div>
-
           <div className="flex-1 min-w-0">
             <div className="flex items-start justify-between gap-3 mb-2">
               <div className="flex-1 min-w-0">
@@ -115,7 +117,6 @@ export function ActivityItem({
                   {activity.description}
                 </p>
               </div>
-
               <div className="flex items-center gap-2 shrink-0">
                 <Badge variant={getStatusVariant(activity.status)}>
                   {activity.status}
@@ -126,6 +127,7 @@ export function ActivityItem({
                   onClick={handleDismiss}
                   loading={isPending}
                   disabled={isPending}
+                  className="transition-opacity duration-200 cursor-pointer"
                 >
                   Dismiss
                 </Button>
@@ -133,11 +135,13 @@ export function ActivityItem({
             </div>
 
             <div className="flex items-center gap-3 mt-4 pt-3 border-t border-gray-100">
-              <span className="font-medium text-gray-900">
-                {activity.user.name}
-              </span>
+              <div className="flex items-center gap-2 text-sm">
+                <span className="font-medium text-gray-900">
+                  {activity.user.name}
+                </span>
+              </div>
               <span className="text-gray-300">•</span>
-              <span className="text-sm text-gray-500">
+              <span className="text-sm text-gray-500" suppressHydrationWarning>
                 {formatDate(activity.timestamp)}
               </span>
               <span className="text-gray-300">•</span>
@@ -150,6 +154,17 @@ export function ActivityItem({
 
             {error && (
               <div className="mt-3 text-sm text-red-700 bg-red-50 border border-red-200 px-3 py-2 rounded-lg flex items-center gap-2">
+                <svg
+                  className="w-4 h-4 shrink-0"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                    clipRule="evenodd"
+                  />
+                </svg>
                 <span>{error}</span>
               </div>
             )}
