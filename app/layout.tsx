@@ -22,7 +22,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head></head>
+      <head>
+        <link rel="dns-prefetch" href="https://api.dicebear.com" />
+      </head>
       <body className={`${inter.variable} antialiased font-sans`}>
         <DashboardLayout>{children}</DashboardLayout>
       </body>
