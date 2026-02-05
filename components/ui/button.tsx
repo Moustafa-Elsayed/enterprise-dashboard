@@ -32,12 +32,12 @@ export function Button({
     lg: "px-6 py-3 text-lg",
   };
 
+  const classes = [baseStyles, variants[variant], sizes[size], className]
+    .filter(Boolean)
+    .join(" ");
+
   return (
-    <button
-      className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
-      disabled={disabled || loading}
-      {...props}
-    >
+    <button className={classes} disabled={disabled || loading} {...props}>
       {loading && (
         <svg
           className="animate-spin -ml-1 mr-2 h-4 w-4"

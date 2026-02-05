@@ -12,7 +12,7 @@ export async function ActivityCount({ searchParams }: ActivityCountProps) {
   );
 
   return (
-    <span className="ml-2 px-2.5 py-1 text-sm font-medium text-gray-600 bg-gray-100 rounded-full">
+    <span className="border ml-2 px-2.5 py-1 text-sm font-medium text-gray-600 bg-gray-100 rounded-full">
       {count}
     </span>
   );

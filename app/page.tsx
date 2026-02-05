@@ -17,10 +17,10 @@ export default async function Home({ searchParams }: HomeProps) {
   const params = await searchParams;
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div className="space-y-10">
+    <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8 py-4 sm:py-8">
+      <div className="space-y-6 sm:space-y-10">
         <section aria-labelledby="system-health-heading">
-          <div className="flex items-center gap-3 mb-6">
+          <div className="flex items-center gap-3 mb-4 sm:mb-6">
             <div
               className="w-1 h-7 bg-blue-500 rounded-full"
               aria-hidden="true"
@@ -38,7 +38,7 @@ export default async function Home({ searchParams }: HomeProps) {
         </section>
 
         <section aria-labelledby="recent-activities-heading">
-          <div className="mb-6 space-y-5">
+          <div className="mb-4 sm:mb-6 space-y-4 sm:space-y-5">
             <div className="flex items-center gap-3">
               <div
                 className="w-1 h-7 bg-green-500 rounded-full"
