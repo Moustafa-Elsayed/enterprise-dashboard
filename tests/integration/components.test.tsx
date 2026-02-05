@@ -45,21 +45,16 @@ describe("CategoryFilter", () => {
     const securityBtn = screen.getByText("Security");
     fireEvent.click(securityBtn);
 
-    // Expect push to be called with correct URL parameter
-    // The exact implementation might vary slightly with URLSearchParams serialization
-    // but typically it should be something like below
     expect(pushMock.mock.calls[0][0]).toContain("category=security");
   });
 
   it("removes category param when clicking All", () => {
-    // Set initial state as if "security" is selected
     mockCategoryParam = "security";
     render(<CategoryFilter />);
 
     const allBtn = screen.getByText("All");
     fireEvent.click(allBtn);
 
-    // Clicking "All" should remove the parameter, resulting in just "?" or "" after path
     const calledUrl = pushMock.mock.calls[0][0];
     const isCleanUrl = calledUrl === "/?" || calledUrl === "/";
     expect(isCleanUrl).toBe(true);

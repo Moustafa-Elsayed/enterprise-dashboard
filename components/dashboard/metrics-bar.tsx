@@ -42,7 +42,6 @@ export async function MetricsBar() {
           key={metric.name}
           className="group relative bg-linear-to-br from-white to-gray-50 rounded-xl border border-gray-200 shadow-lg transition-all duration-300 p-6 overflow-hidden hover:scale-[1.02] hover:border-blue-300"
         >
-          {/* Decorative gradient overlay */}
           <div className="absolute top-0 right-0 w-32 h-32 bg-linear-to-br from-blue-400/10 to-purple-400/10 rounded-full blur-2xl -z-0 transition-transform duration-500" />
 
           <div className="relative z-10">

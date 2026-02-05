@@ -1,36 +1,128 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Enterprise Dashboard
+
+A high-performance enterprise dashboard built with Next.js 15, TypeScript, and Tailwind CSS. Features real-time metrics monitoring, activity tracking, and advanced filtering capabilities.
+
+## Features
+
+- **Real-time System Metrics**: Monitor CPU, Memory, Disk, and Network usage
+- **Activity Management**: Track and manage system activities with filtering and search
+- **URL-driven State**: Search and filter parameters sync with URL for shareable links
+- **Optimistic UI**: Instant feedback when dismissing activities
+- **Server Components**: Leverages Next.js App Router for optimal performance
+- **Strict TypeScript**: Zero `any` types, full type safety throughout
+- **Responsive Design**: Works seamlessly on desktop and mobile devices
+
+## Tech Stack
+
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript (Strict Mode)
+- **Styling**: Tailwind CSS
+- **Testing**: Vitest (Unit) + Playwright (E2E)
+- **Data**: JSON-based mock data
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn
+
+### Installation
+
+```bash
+npm install
+```
+
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the dashboard.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Building for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Testing
 
-To learn more about Next.js, take a look at the following resources:
+### Unit Tests
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm test
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Run tests with UI:
 
-## Deploy on Vercel
+```bash
+npm run test:ui
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### E2E Tests
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run test:e2e
+```
+
+Run E2E tests with UI:
+
+```bash
+npm run test:e2e:ui
+```
+
+## Project Structure
+
+```
+enterprise-dashboard/
+├── app/
+│   ├── actions/          # Server Actions
+│   ├── page.tsx          # Main dashboard page
+│   ├── layout.tsx        # Root layout
+│   ├── loading.tsx       # Loading UI
+│   └── error.tsx         # Error boundary
+├── components/
+│   ├── dashboard/        # Dashboard-specific components
+│   └── ui/               # Reusable UI primitives
+├── lib/
+│   ├── types.ts          # TypeScript type definitions
+│   ├── data.ts           # Data fetching functions
+│   └── mock-data.json    # Mock data source
+└── tests/
+    ├── unit/             # Vitest unit tests
+    └── e2e/              # Playwright E2E tests
+```
+
+## Key Features Explained
+
+### Server Components
+
+The dashboard uses React Server Components by default for optimal performance. Data is fetched on the server and streamed to the client with Suspense boundaries.
+
+### URL State Management
+
+Search queries and category filters are synchronized with URL parameters, making the dashboard state shareable and bookmarkable.
+
+### Optimistic UI Updates
+
+When dismissing an activity, the UI updates immediately while the server action processes in the background, providing instant feedback.
+
+### Type Safety
+
+The entire codebase uses strict TypeScript with no `any` types, ensuring type safety and better developer experience.
+
+## Development Phases
+
+This project was built in 4 phases:
+
+1. **Phase 1**: Project foundation, TypeScript configuration, type definitions
+2. **Phase 2**: UI components and design system
+3. **Phase 3**: Core features (metrics, activities, filters)
+4. **Phase 4**: Interactivity and testing
+
+## License
+
+MIT

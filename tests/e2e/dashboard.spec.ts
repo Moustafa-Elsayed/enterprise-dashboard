@@ -21,6 +21,7 @@ test.describe("Enterprise Dashboard E2E Tests", () => {
 
     await page.getByRole("button", { name: "Security" }).click();
 
+    await page.waitForURL(/category=security/, { timeout: 10000 });
     await expect(page).toHaveURL(/category=security/);
 
     await page.waitForTimeout(1000);
