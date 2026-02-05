@@ -1,77 +1,86 @@
 # Enterprise Dashboard
 
-A high-performance enterprise dashboard built with Next.js 15, TypeScript, and Tailwind CSS. Features real-time metrics monitoring, activity tracking, and advanced filtering capabilities.
+A modern dashboard application for monitoring system health and recent activities. Built with Next.js 16 and TypeScript, featuring server-side rendering, optimistic UI updates, and comprehensive test coverage.
 
 ## Features
 
-- **Real-time System Metrics**: Monitor CPU, Memory, Disk, and Network usage
-- **Activity Management**: Track and manage system activities with filtering and search
-- **URL-driven State**: Search and filter parameters sync with URL for shareable links
-- **Optimistic UI**: Instant feedback when dismissing activities
-- **Server Components**: Leverages Next.js App Router for optimal performance
-- **Strict TypeScript**: Zero `any` types, full type safety throughout
-- **Responsive Design**: Works seamlessly on desktop and mobile devices
+- Real-time system metrics monitoring (CPU, Memory, Disk, Network)
+- Activity management with filtering and search capabilities
+- URL-synced filters for shareable links
+- Optimistic UI updates for instant feedback
+- Fully responsive design
+- Performance optimized with lazy loading and code splitting
 
 ## Tech Stack
 
-- **Framework**: Next.js 15 (App Router)
-- **Language**: TypeScript (Strict Mode)
-- **Styling**: Tailwind CSS
-- **Testing**: Vitest (Unit) + Playwright (E2E)
-- **Data**: JSON-based mock data
+- **Framework**: Next.js 16.1.6 (App Router)
+- **Language**: TypeScript 5
+- **Styling**: Tailwind CSS 4
+- **Testing**: Vitest 4 (unit/integration), Playwright 1.58 (E2E)
+- **Icons**: Lucide React
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js 18+
-- npm or yarn
+- Node.js 20.x or higher
+- npm, yarn, pnpm, or bun
 
 ### Installation
 
+Clone the repository and install dependencies:
+
 ```bash
+git clone <repository-url>
+cd enterprise-dashboard
 npm install
 ```
 
 ### Development
 
+Run the development server:
+
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the dashboard.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### Building for Production
+### Build
+
+Create a production build:
 
 ```bash
 npm run build
 npm start
 ```
 
+## Available Scripts
+
+| Command               | Description                      |
+| --------------------- | -------------------------------- |
+| `npm run dev`         | Start development server         |
+| `npm run build`       | Build for production             |
+| `npm start`           | Start production server          |
+| `npm run lint`        | Run ESLint                       |
+| `npm test`            | Run unit and integration tests   |
+| `npm run test:ui`     | Run tests with Vitest UI         |
+| `npm run test:e2e`    | Run E2E tests with Playwright    |
+| `npm run test:e2e:ui` | Run E2E tests with Playwright UI |
+
 ## Testing
 
-### Unit Tests
+The project includes comprehensive test coverage:
+
+- **Unit Tests**: 8 tests for utility functions
+- **Integration Tests**: 3 tests for component interactions
+- **E2E Tests**: 15 tests across Chromium, Firefox, and WebKit
+
+Run all tests:
 
 ```bash
 npm test
-```
-
-Run tests with UI:
-
-```bash
-npm run test:ui
-```
-
-### E2E Tests
-
-```bash
 npm run test:e2e
-```
-
-Run E2E tests with UI:
-
-```bash
-npm run test:e2e:ui
 ```
 
 ## Project Structure
@@ -80,49 +89,58 @@ npm run test:e2e:ui
 enterprise-dashboard/
 ├── app/
 │   ├── actions/          # Server Actions
-│   ├── page.tsx          # Main dashboard page
+│   ├── error.tsx         # Error boundary
+│   ├── loading.tsx       # Loading state
 │   ├── layout.tsx        # Root layout
-│   ├── loading.tsx       # Loading UI
-│   └── error.tsx         # Error boundary
+│   └── page.tsx          # Main dashboard
 ├── components/
-│   ├── dashboard/        # Dashboard-specific components
-│   └── ui/               # Reusable UI primitives
+│   ├── dashboard/        # Dashboard components
+│   ├── layout/           # Layout components
+│   └── ui/               # UI components
 ├── lib/
-│   ├── types.ts          # TypeScript type definitions
-│   ├── data.ts           # Data fetching functions
-│   └── mock-data.json    # Mock data source
-└── tests/
-    ├── unit/             # Vitest unit tests
-    └── e2e/              # Playwright E2E tests
+│   ├── data.ts           # Data fetching with caching
+│   ├── types.ts          # Type definitions
+│   └── mock-data.json    # Mock data
+├── tests/
+│   ├── unit/             # Unit tests
+│   ├── integration/      # Integration tests
+│   └── e2e/              # E2E tests
+└── public/               # Static assets
 ```
 
-## Key Features Explained
+## Key Implementation Details
 
-### Server Components
+### Server-Side Rendering
 
-The dashboard uses React Server Components by default for optimal performance. Data is fetched on the server and streamed to the client with Suspense boundaries.
+- Main dashboard is a Server Component
+- Independent Suspense boundaries for metrics and activities
+- Data cached with 60-second revalidation
 
-### URL State Management
+### Client-Side Features
 
-Search queries and category filters are synchronized with URL parameters, making the dashboard state shareable and bookmarkable.
+- URL-synced filters for shareable links
+- Debounced search (600ms)
+- Optimistic UI updates
 
-### Optimistic UI Updates
+### Performance
 
-When dismissing an activity, the UI updates immediately while the server action processes in the background, providing instant feedback.
+- Image optimization with `next/image`
+- Dynamic imports for code splitting
+- CSS optimization in production
+- Content visibility optimization
 
-### Type Safety
+### Error Handling
 
-The entire codebase uses strict TypeScript with no `any` types, ensuring type safety and better developer experience.
+- Global error boundary
+- Loading states with skeleton UI
+- Local error handling in components
 
-## Development Phases
+## Browser Support
 
-This project was built in 4 phases:
-
-1. **Phase 1**: Project foundation, TypeScript configuration, type definitions
-2. **Phase 2**: UI components and design system
-3. **Phase 3**: Core features (metrics, activities, filters)
-4. **Phase 4**: Interactivity and testing
+- Chrome/Edge 90+
+- Firefox 90+
+- Safari/iOS 15+
 
 ## License
 
-MIT
+This project is created for educational and demonstration purposes.
