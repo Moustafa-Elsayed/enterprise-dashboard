@@ -5,6 +5,7 @@ A modern dashboard application for monitoring system health and recent activitie
 ## Features
 
 
+
 - Real-time system metrics monitoring (CPU, Memory, Disk, Network)
 - Activity management with filtering and search capabilities
 - URL-synced filters for shareable links
